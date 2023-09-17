@@ -13,6 +13,6 @@ public class Pretty {
     public static DurationFormatter duration() { return new DurationFormatter(); }
     public static TimeFormatter time() { return new TimeFormatter(); }
     public static AgeFormatter age() { return new AgeFormatter(); }
-    public static UnitFormatter unit(String unit) { return new UnitFormatter(unit); }
+    public static UnitFormatter unit(String unit) { return new CustomUnitFormatter(unit); }
     public static ObjectFormatter object() { return new ObjectFormatter(); }
 }
