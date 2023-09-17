@@ -8,12 +8,10 @@ public interface ObjectTakingFormatter {
     String plain(Object value);
     String detail(Object value);
     default DomContent format(Object value) {
-        if (value == null)
-            return null;
         var plain = plain(value);
         var detail = detail(value);
         if (Objects.equals(plain, detail))
-            return Html.span().add(plain);
+            return new DomText(plain);
         return Html.abbr()
             .title(detail(value))
             .add(plain(value));

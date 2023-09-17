@@ -9,7 +9,7 @@ public class DurationFormatter implements DurationTakingFormatter, ReactiveDurat
     public DurationSecondsFormatter seconds() { return new DurationSecondsFormatter(); }
     @Override public String plain(Duration value) {
         if (value == null)
-            return null;
+            return "-";
         if (value.isNegative())
             return "-" + plain(value.negated());
         if (value.toDays() > 0)
@@ -40,7 +40,7 @@ public class DurationFormatter implements DurationTakingFormatter, ReactiveDurat
     }
     @Override public String detail(Duration value) {
         if (value == null)
-            return null;
+            return "-";
         if (value.isNegative())
             return "-" + detail(value.negated());
         var seconds = new DecimalFormat("0.#########").format(value.toSecondsPart() + 0.000_000_001 * value.toNanosPart());
@@ -60,7 +60,7 @@ public class DurationFormatter implements DurationTakingFormatter, ReactiveDurat
     }
     @Override public String plain(ReactiveDuration value) {
         if (value == null)
-            return null;
+            return "-";
         if (value.isNegative())
             return "-" + plain(value.negated());
         if (value.compareTo(Duration.ofDays(1)) >= 0)
@@ -77,5 +77,8 @@ public class DurationFormatter implements DurationTakingFormatter, ReactiveDurat
             return String.format("%d ms", value.truncatedTo(Duration.ofMillis(1)).toMillis());
         return "0";
     }
-    @Override public String detail(ReactiveDuration value) { return null; }
+    /*
+     * Don't refresh the page just to render fine-grained tooltip for reactive durations.
+     */
+    @Override public String detail(ReactiveDuration value) { return plain(value); }
 }

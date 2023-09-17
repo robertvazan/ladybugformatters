@@ -11,9 +11,15 @@ public interface DoubleFormatter {
         var plain = plain(value);
         var detail = detail(value);
         if (Objects.equals(plain, detail))
-            return Html.span().add(plain);
+            return new DomText(plain);
         return Html.abbr()
             .title(detail(value))
             .add(plain(value));
     }
+    default String plain(Double value) { return value != null ? plain((double)value) : "-"; }
+    default String detail(Double value) { return value != null ? detail((double)value) : "-"; }
+    default DomContent format(Double value) { return value != null ? format((double)value) : new DomText("-"); }
+    default String plain(OptionalDouble value) { return value.isPresent() ? plain(value.getAsDouble()) : "-"; }
+    default String detail(OptionalDouble value) { return value.isPresent() ? detail(value.getAsDouble()) : "-"; }
+    default DomContent format(OptionalDouble value) { return value.isPresent() ? format(value.getAsDouble()) : new DomText("-"); }
 }
