@@ -3,7 +3,7 @@ package com.machinezoo.ladybugformatters;
 
 import java.time.*;
 
-public class SecondFormatter implements DoubleValueFormatter {
+public class DurationSecondsFormatter implements DoubleFormatter {
 	private static Duration convert(double seconds) {
 		return Duration.ofNanos((long)(1_000_000_000 * seconds));
 	}

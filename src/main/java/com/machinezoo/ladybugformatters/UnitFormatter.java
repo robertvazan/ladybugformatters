@@ -4,7 +4,7 @@ package com.machinezoo.ladybugformatters;
 import java.text.*;
 import com.machinezoo.pushmode.dom.*;
 
-public class UnitFormatter implements DoubleValueFormatter {
+public class UnitFormatter implements DoubleFormatter {
 	private final String unit;
 	public String unit() {
 		return unit;
@@ -73,7 +73,7 @@ public class UnitFormatter implements DoubleValueFormatter {
 	public DomContent format(double value) {
 		var abs = Math.abs(value);
 		if (abs >= Math.pow(0.001, SMALL_PREFIXES.length) && abs < Math.pow(1_000, BIG_PREFIXES.length + 1) || abs == 0)
-			return DoubleValueFormatter.super.format(value);
+			return DoubleFormatter.super.format(value);
 		var element = (DomElement)new ScientificFormatter().format(value);
 		return element
 			.add(" ")

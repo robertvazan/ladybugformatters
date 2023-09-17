@@ -3,9 +3,9 @@ package com.machinezoo.ladybugformatters;
 
 import java.text.*;
 
-public class Percent100Formatter implements DoubleValueFormatter {
+public class PremultipliedPercentsFormatter implements DoubleFormatter {
 	private int precision = 3;
-	public Percent100Formatter precision(int precision) {
+	public PremultipliedPercentsFormatter precision(int precision) {
 		this.precision = precision;
 		return this;
 	}

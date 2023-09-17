@@ -5,7 +5,7 @@ import java.time.*;
 import java.time.format.*;
 import com.machinezoo.hookless.time.*;
 
-public class AgoFormatter implements InstantValueFormatter {
+public class AgeFormatter implements InstantFormatter {
 	@Override
 	public String plain(Instant value) {
 		if (value == null)

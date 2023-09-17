@@ -4,7 +4,7 @@ package com.machinezoo.ladybugformatters;
 import com.machinezoo.hookless.time.*;
 import com.machinezoo.pushmode.dom.*;
 
-public interface ReactiveDurationValueFormatter {
+public interface ReactiveDurationFormatter {
 	String plain(ReactiveDuration value);
 	String detail(ReactiveDuration value);
 	default DomContent format(ReactiveDuration value) {

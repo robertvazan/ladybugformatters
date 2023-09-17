@@ -4,10 +4,12 @@ package com.machinezoo.ladybugformatters;
 import java.util.*;
 import com.machinezoo.pushmode.dom.*;
 
-public interface DoubleValueFormatter {
-    String plain(double value);
-    String detail(double value);
-    default DomContent format(double value) {
+public interface ObjectTakingFormatter {
+    String plain(Object value);
+    String detail(Object value);
+    default DomContent format(Object value) {
+        if (value == null)
+            return null;
         var plain = plain(value);
         var detail = detail(value);
         if (Objects.equals(plain, detail))

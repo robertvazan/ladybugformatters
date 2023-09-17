@@ -5,7 +5,7 @@ import static java.util.stream.Collectors.*;
 import java.text.*;
 import com.machinezoo.pushmode.dom.*;
 
-public class ScientificFormatter implements DoubleValueFormatter {
+public class ScientificFormatter implements DoubleFormatter {
 	private static char superscript(char symbol) {
 		if (symbol == '-')
 			return '⁻';
@@ -36,7 +36,7 @@ public class ScientificFormatter implements DoubleValueFormatter {
 		var ascii = new DecimalFormat("0.##E0").format(value);
 		var separator = ascii.indexOf('E');
 		if (separator < 0)
-			return DoubleValueFormatter.super.format(value);
+			return DoubleFormatter.super.format(value);
 		return Html.span()
 			.title(detail(value))
 			.add(ascii.substring(0, separator))

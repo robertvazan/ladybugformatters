@@ -5,40 +5,14 @@ package com.machinezoo.ladybugformatters;
  * A gallery of default formatters. Apps can define their own formatter gallery.
  */
 public class Pretty {
-	public static NumberFormatter number() {
-		return new NumberFormatter();
-	}
-	public static ScientificFormatter scientific() {
-		return new ScientificFormatter();
-	}
-	public static PercentFormatter percents() {
-		return new PercentFormatter();
-	}
-	public static Percent100Formatter percents100() {
-		return new Percent100Formatter();
-	}
-	public static ByteFormatter bytes() {
-		return new ByteFormatter();
-	}
-	public static PixelFormatter pixels() {
-		return new PixelFormatter();
-	}
-	public static DurationFormatter duration() {
-		return new DurationFormatter();
-	}
-	public static SecondFormatter seconds() {
-		return new SecondFormatter();
-	}
-	public static InstantFormatter instant() {
-		return new InstantFormatter();
-	}
-	public static AgoFormatter ago() {
-		return new AgoFormatter();
-	}
-	public static UnitFormatter unit(String unit) {
-		return new UnitFormatter(unit);
-	}
-	public static ObjectFormatter object() {
-		return new ObjectFormatter();
-	}
+    public static DecimalFormatter number() { return new DecimalFormatter(); }
+    public static ScientificFormatter scientific() { return new ScientificFormatter(); }
+    public static PercentsFormatter percents() { return new PercentsFormatter(); }
+    public static BytesFormatter bytes() { return new BytesFormatter(); }
+    public static PixelsFormatter pixels() { return new PixelsFormatter(); }
+    public static DurationFormatter duration() { return new DurationFormatter(); }
+    public static TimeFormatter time() { return new TimeFormatter(); }
+    public static AgeFormatter age() { return new AgeFormatter(); }
+    public static UnitFormatter unit(String unit) { return new UnitFormatter(unit); }
+    public static ObjectFormatter object() { return new ObjectFormatter(); }
 }

@@ -3,7 +3,7 @@ package com.machinezoo.ladybugformatters;
 
 import java.text.*;
 
-public class NumberFormatter implements DoubleValueFormatter {
+public class DecimalFormatter implements DoubleFormatter {
 	private static final char[] BIG_PREFIXES = "KMG".toCharArray();
 	@Override
 	public String plain(double value) {

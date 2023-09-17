@@ -4,7 +4,7 @@ package com.machinezoo.ladybugformatters;
 import java.time.*;
 import com.machinezoo.pushmode.dom.*;
 
-public interface DurationValueFormatter {
+public interface DurationTakingFormatter {
 	String plain(Duration value);
 	String detail(Duration value);
 	default DomContent format(Duration value) {

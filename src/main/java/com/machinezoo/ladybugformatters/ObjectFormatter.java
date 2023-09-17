@@ -6,9 +6,9 @@ import java.util.*;
 import com.machinezoo.hookless.time.*;
 import com.machinezoo.pushmode.dom.*;
 
-public class ObjectFormatter implements ObjectValueFormatter {
-	private static ObjectValueFormatter from(DoubleValueFormatter typed) {
-		return new ObjectValueFormatter() {
+public class ObjectFormatter implements ObjectTakingFormatter {
+	private static ObjectTakingFormatter from(DoubleFormatter typed) {
+		return new ObjectTakingFormatter() {
 			@Override
 			public String plain(Object value) {
 				return typed.plain(((Number)value).doubleValue());
@@ -23,8 +23,8 @@ public class ObjectFormatter implements ObjectValueFormatter {
 			}
 		};
 	}
-	private static ObjectValueFormatter from(InstantValueFormatter typed) {
-		return new ObjectValueFormatter() {
+	private static ObjectTakingFormatter from(InstantFormatter typed) {
+		return new ObjectTakingFormatter() {
 			@Override
 			public String plain(Object value) {
 				return typed.plain((Instant)value);
@@ -39,8 +39,8 @@ public class ObjectFormatter implements ObjectValueFormatter {
 			}
 		};
 	}
-	private static ObjectValueFormatter from(DurationValueFormatter typed) {
-		return new ObjectValueFormatter() {
+	private static ObjectTakingFormatter from(DurationTakingFormatter typed) {
+		return new ObjectTakingFormatter() {
 			@Override
 			public String plain(Object value) {
 				return typed.plain((Duration)value);
@@ -55,8 +55,8 @@ public class ObjectFormatter implements ObjectValueFormatter {
 			}
 		};
 	}
-	private static ObjectValueFormatter from(ReactiveDurationValueFormatter typed) {
-		return new ObjectValueFormatter() {
+	private static ObjectTakingFormatter from(ReactiveDurationFormatter typed) {
+		return new ObjectTakingFormatter() {
 			@Override
 			public String plain(Object value) {
 				return typed.plain((ReactiveDuration)value);
@@ -71,8 +71,8 @@ public class ObjectFormatter implements ObjectValueFormatter {
 			}
 		};
 	}
-	private static ObjectValueFormatter nil() {
-		return new ObjectValueFormatter() {
+	private static ObjectTakingFormatter nil() {
+		return new ObjectTakingFormatter() {
 			@Override
 			public String plain(Object value) {
 				return null;
@@ -87,8 +87,8 @@ public class ObjectFormatter implements ObjectValueFormatter {
 			}
 		};
 	}
-	private static ObjectValueFormatter optional(ObjectValueFormatter inner) {
-		return new ObjectValueFormatter() {
+	private static ObjectTakingFormatter optional(ObjectTakingFormatter inner) {
+		return new ObjectTakingFormatter() {
 			@Override
 			public String plain(Object value) {
 				return inner.plain(((Optional<?>)value).get());
@@ -103,8 +103,8 @@ public class ObjectFormatter implements ObjectValueFormatter {
 			}
 		};
 	}
-	private static ObjectValueFormatter optionalInt(DoubleValueFormatter inner) {
-		return new ObjectValueFormatter() {
+	private static ObjectTakingFormatter optionalInt(DoubleFormatter inner) {
+		return new ObjectTakingFormatter() {
 			@Override
 			public String plain(Object value) {
 				return inner.plain(((OptionalInt)value).getAsInt());
@@ -119,8 +119,8 @@ public class ObjectFormatter implements ObjectValueFormatter {
 			}
 		};
 	}
-	private static ObjectValueFormatter optionalLong(DoubleValueFormatter inner) {
-		return new ObjectValueFormatter() {
+	private static ObjectTakingFormatter optionalLong(DoubleFormatter inner) {
+		return new ObjectTakingFormatter() {
 			@Override
 			public String plain(Object value) {
 				return inner.plain(((OptionalLong)value).getAsLong());
@@ -135,8 +135,8 @@ public class ObjectFormatter implements ObjectValueFormatter {
 			}
 		};
 	}
-	private static ObjectValueFormatter optionalDouble(DoubleValueFormatter inner) {
-		return new ObjectValueFormatter() {
+	private static ObjectTakingFormatter optionalDouble(DoubleFormatter inner) {
+		return new ObjectTakingFormatter() {
 			@Override
 			public String plain(Object value) {
 				return inner.plain(((OptionalDouble)value).getAsDouble());
@@ -151,8 +151,8 @@ public class ObjectFormatter implements ObjectValueFormatter {
 			}
 		};
 	}
-	private static ObjectValueFormatter stringifier() {
-		return new ObjectValueFormatter() {
+	private static ObjectTakingFormatter stringifier() {
+		return new ObjectTakingFormatter() {
 			@Override
 			public String plain(Object value) {
 				return value.toString();
@@ -163,25 +163,25 @@ public class ObjectFormatter implements ObjectValueFormatter {
 			}
 		};
 	}
-	private static ObjectValueFormatter identify(Object value) {
+	private static ObjectTakingFormatter identify(Object value) {
 		if (value instanceof Number)
-			return from(new NumberFormatter());
+			return from(new DecimalFormatter());
 		if (value instanceof Instant)
-			return from(new AgoFormatter());
+			return from(new AgeFormatter());
 		if (value instanceof Duration)
-			return from((DurationValueFormatter)new DurationFormatter());
+			return from((DurationTakingFormatter)new DurationFormatter());
 		if (value instanceof ReactiveDuration)
-			return from((ReactiveDurationValueFormatter)new DurationFormatter());
+			return from((ReactiveDurationFormatter)new DurationFormatter());
 		if (value instanceof Optional) {
 			var optional = (Optional<?>)value;
 			return optional.isPresent() ? optional(identify(optional.get())) : nil();
 		}
 		if (value instanceof OptionalInt)
-			return optionalInt(new NumberFormatter());
+			return optionalInt(new DecimalFormatter());
 		if (value instanceof OptionalLong)
-			return optionalLong(new NumberFormatter());
+			return optionalLong(new DecimalFormatter());
 		if (value instanceof OptionalDouble)
-			return optionalDouble(new NumberFormatter());
+			return optionalDouble(new DecimalFormatter());
 		return stringifier();
 	}
 	@Override

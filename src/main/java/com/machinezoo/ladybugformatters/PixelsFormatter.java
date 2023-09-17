@@ -1,8 +1,8 @@
 // Part of Ladybug Formatters: https://ladybugformatters.machinezoo.com/
 package com.machinezoo.ladybugformatters;
 
-public class ByteFormatter extends UnitFormatter {
-	public ByteFormatter() {
-		super("B");
+public class PixelsFormatter extends UnitFormatter {
+	public PixelsFormatter() {
+		super("px");
 	}
 }
