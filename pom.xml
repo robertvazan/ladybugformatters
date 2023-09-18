@@ -5,7 +5,7 @@
 
 	<groupId>com.machinezoo.ladybugformatters</groupId>
 	<artifactId>ladybugformatters</artifactId>
-	<version>0.0.1</version>
+	<version>0.1.0</version>
 
 	<name>Ladybug Formatters</name>
 	<description>Collection of convenient formatters for projects using hookless and pushmode.</description>
