@@ -19,7 +19,9 @@
 /**
  * Collection of formatters generating both plain text and HTML.
  */
-@com.machinezoo.stagean.NoTests
-@com.machinezoo.stagean.StubDocs
-@com.machinezoo.stagean.DraftApi
+@StubTests
+@StubDocs
+@DraftApi
 package com.machinezoo.ladybugformatters;
+
+import com.machinezoo.stagean.*;
