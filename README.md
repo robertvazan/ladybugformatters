@@ -3,7 +3,7 @@
 
 # Ladybug Formatters
 
-[![Maven Central](https://img.shields.io/maven-central/v/com.machinezoo.ladybugformatters/ladybugformatters)](https://search.maven.org/artifact/com.machinezoo.ladybugformatters/ladybugformatters)
+[![Maven Central](https://img.shields.io/maven-central/v/com.machinezoo.ladybugformatters/ladybugformatters)](https://central.sonatype.com/artifact/com.machinezoo.ladybugformatters/ladybugformatters)
 [![Build status](https://github.com/robertvazan/ladybugformatters/workflows/build/badge.svg)](https://github.com/robertvazan/ladybugformatters/actions/workflows/build.yml)
 [![Test coverage](https://codecov.io/gh/robertvazan/ladybugformatters/branch/master/graph/badge.svg)](https://codecov.io/gh/robertvazan/ladybugformatters)
 
