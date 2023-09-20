@@ -21,7 +21,6 @@ class Project(scaffold.Java):
     
     def javadoc_links(self):
         yield 'https://stagean.machinezoo.com/javadoc/'
-        yield 'https://hookless.machinezoo.com/javadocs/core/'
         yield 'https://hookless.machinezoo.com/javadocs/time/'
         yield 'https://pushmode.machinezoo.com/javadoc/'
 
