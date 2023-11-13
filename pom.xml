@@ -57,12 +57,12 @@
 		<dependency>
 			<groupId>com.machinezoo.pushmode</groupId>
 			<artifactId>pushmode</artifactId>
-			<version>0.8.3</version>
+			<version>0.8.4</version>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter</artifactId>
-			<version>5.8.2</version>
+			<version>5.10.1</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -71,16 +71,16 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.1</version>
+				<version>3.11.0</version>
 			</plugin>
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.1.2</version>
+				<version>3.2.2</version>
 			</plugin>
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.7</version>
+				<version>0.8.11</version>
 				<executions>
 					<execution>
 						<id>prepare-agent</id>
@@ -100,7 +100,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.3.1</version>
+				<version>3.6.2</version>
 				<configuration>
 					<notimestamp>true</notimestamp>
 					<doclint>all,-missing</doclint>
@@ -109,7 +109,6 @@
 					</bottom>
 					<links>
 						<link>https://stagean.machinezoo.com/javadoc/</link>
-						<link>https://hookless.machinezoo.com/javadocs/core/</link>
 						<link>https://hookless.machinezoo.com/javadocs/time/</link>
 						<link>https://pushmode.machinezoo.com/javadoc/</link>
 					</links>
@@ -126,7 +125,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
-				<version>3.0.1</version>
+				<version>3.3.0</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
@@ -157,7 +156,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-gpg-plugin</artifactId>
-				<version>1.6</version>
+				<version>3.1.0</version>
 				<configuration>
 					<gpgArguments>
 						<arg>--pinentry-mode</arg>
